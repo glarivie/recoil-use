@@ -5,8 +5,8 @@ const useRecoilToggle = (state: RecoilState<boolean>): [boolean, (nextValue?: an
   const [value, setValue] = useRecoilState<boolean>(state);
 
   const toggleValue = useCallback((nextValue?: any): void => {
-    return setValue(typeof nextValue === 'boolean' ? nextValue : !value);
-  }, [value, setValue]);
+    return setValue(prev => typeof nextValue === 'boolean' ? nextValue : !prev);
+  }, [setValue]);
 
   return [value, toggleValue];
 };
