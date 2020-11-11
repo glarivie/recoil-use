@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
 import { useRecoilState, RecoilState } from 'recoil';
 
-const useSetPartialRecoilState = <T extends object>(
+const useRecoilSetState = <T extends object>(
   state: RecoilState<T>,
 ): [T, (patch: Partial<T> | ((prevState: T) => Partial<T>)) => void] => {
   const [value, setValue] = useRecoilState<T>(state);
@@ -13,4 +13,4 @@ const useSetPartialRecoilState = <T extends object>(
   return [value, setState];
 };
 
-export default useSetPartialRecoilState;
+export default useRecoilSetState;

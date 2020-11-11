@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
 import { useRecoilState, RecoilState } from 'recoil';
 
-const useToggleRecoilState = (state: RecoilState<boolean>): [boolean, (nextValue?: any) => void] => {
+const useRecoilToggle = (state: RecoilState<boolean>): [boolean, (nextValue?: any) => void] => {
   const [value, setValue] = useRecoilState<boolean>(state);
 
   const toggleValue = useCallback((nextValue?: any): void => {
@@ -11,4 +11,4 @@ const useToggleRecoilState = (state: RecoilState<boolean>): [boolean, (nextValue
   return [value, toggleValue];
 };
 
-export default useToggleRecoilState;
+export default useRecoilToggle;

@@ -7,7 +7,7 @@ interface Actions {
   set: (value: number) => void;
 }
 
-const useCounterRecoilState = (state: RecoilState<number>): [number, Actions] => {
+const useRecoilCounter = (state: RecoilState<number>): [number, Actions] => {
   const [value, setValue] = useRecoilState<number>(state);
 
   if (typeof value !== 'number') {
@@ -33,4 +33,4 @@ const useCounterRecoilState = (state: RecoilState<number>): [number, Actions] =>
   return [value, { inc, dec, set: setValue }];
 };
 
-export default useCounterRecoilState;
+export default useRecoilCounter;
